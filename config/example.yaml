@@ -1,0 +1,52 @@
+# Experiment Metadata
+mlflow_experiment_name: test_experiment_1
+model_name: test_model_1
+
+# Debug mode - trains on one batch and profiles
+debug: true
+profiler: pytorch
+
+# Define dataset split
+train_split: 0.8
+test_split: 0.05
+
+# Training
+num_epochs: 10
+batch_size: 16
+accumulate_grad_batches: 16
+num_workers: 8
+matmul_32_precision: medium
+task: classification
+
+# Loss function
+loss: 
+  name: CrossEntropyLoss
+
+# Model
+model:
+  name: PretrainedTransformerClf
+  args:
+    num_classes: 18
+    unfreeze: 1
+    hidden_size: 256
+  
+# Dataset
+dataset:
+  name: LocalMINDDatasetClicks
+  args:
+    text_col: title
+    target_col: category
+
+# Optimizer
+optimizer:
+  name: Adam
+  args:
+    lr: 0.0001
+
+# Learning Rate Scheduler
+scheduler:
+  name: ReduceLROnPlateau
+  args:
+    mode: min
+    factor: 0.5
+    patience: 10

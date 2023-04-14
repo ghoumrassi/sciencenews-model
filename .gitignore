@@ -1,0 +1,9 @@
+mlruns/*
+lightning_logs/*
+data/processed/*
+data/raw/*
+profiler/*
+config/*
+!config/example.yaml
+.vscode
+__pycache__

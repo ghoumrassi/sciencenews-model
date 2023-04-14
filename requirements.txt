@@ -1,0 +1,12 @@
+torch
+tqdm
+h5py
+transformers
+pandas
+numpy
+scikit-learn
+pytorch-lightning
+seaborn
+matplotlib
+PyYAML
+mlflow
